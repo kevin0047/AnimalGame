@@ -67,13 +67,13 @@ namespace AnimalGame
             Random random = new Random();
             foreach (TextBlock textBlock in mainGrid.Children.OfType<TextBlock>())
             {
-                if (textBlock.Name != "TimeTextBlock")
+                if (textBlock.Name != "TimeTextBlock")//타이머 블록이 아니면
                 {
-                    textBlock.Visibility = Visibility.Visible;
-                    int index = random.Next(animalEmoji.Count);
-                    string nextEmoji = animalEmoji[index];
-                    textBlock.Text = nextEmoji;
-                    animalEmoji.RemoveAt(index);
+                    textBlock.Visibility = Visibility.Visible;//visibility는 가시성. textBlock의 가시성을 Visibility.Visible 보이게 함
+                    int index = random.Next(animalEmoji.Count);//리스트 갯수범위(16)안에 랜덤수 생성
+                    string nextEmoji = animalEmoji[index]; 리스트의 index 번째의 이모지를 nextEmoji에 넣고
+                    textBlock.Text = nextEmoji; //textBlock ui 의 텍스트를 nextEmoji가 나오게 출력
+                    animalEmoji.RemoveAt(index); //넣었으니 index 번째의 이모지를 리스트에서 삭제
                 }
             }
             timer.Start();
